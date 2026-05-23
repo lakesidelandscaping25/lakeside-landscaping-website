@@ -1,8 +1,8 @@
 ---
 const businessName = "Lakeside Landscaping LLC";
-const ownerName = "Charlie Oberman";
-const phone = "(862) 241-9731";
-const phoneHref = "+18622419731";
+const ownerName = "Charles Oberman";
+const phone = "(862) 241-9371";
+const phoneHref = "+18622419371";
 const email = "lakesidelandscaping25@gmail.com";
 const location = "Morris County and surrounding areas in New Jersey";
 const logo = "/LLLogo.png";
@@ -13,7 +13,7 @@ const logo = "/LLLogo.png";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{businessName} | Lawn Care & Landscaping based in Morris County, NJ</title>
+    <title>{businessName} | Lawn Care & Landscaping in Morris County, NJ</title>
     <meta
       name="description"
       content="Lakeside Landscaping LLC provides lawn mowing, landscaping projects, hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal in Morris County and surrounding areas in New Jersey."
@@ -114,10 +114,10 @@ const logo = "/LLLogo.png";
         gap: 45px;
         align-items: center;
         background:
-                  linear-gradient(rgba(11, 61, 115, 0.72), rgba(18, 63, 31, 0.78)),
-                  url("/Truck.png");
+          linear-gradient(rgba(11, 61, 115, 0.72), rgba(18, 63, 31, 0.78)),
+          url("/Truck.png");
         background-size: cover;
-        background-position: center;
+        background-position: 35% center;
         color: white;
       }
 
@@ -317,6 +317,25 @@ const logo = "/LLLogo.png";
         margin: 0 auto 24px;
       }
 
+      .contact-info {
+        max-width: 520px;
+        margin: 0 auto 26px;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 18px;
+      }
+
+      .contact-info p {
+        margin: 6px auto;
+      }
+
+      .contact-info a {
+        color: white;
+        font-weight: 800;
+        text-decoration: underline;
+      }
+
       footer {
         background: #082b1a;
         color: white;
@@ -348,6 +367,7 @@ const logo = "/LLLogo.png";
 
         .hero {
           padding-top: 70px;
+          background-position: center;
         }
 
         .brand img {
@@ -382,9 +402,9 @@ const logo = "/LLLogo.png";
         <div>
           <h1>Lawn Care, Landscaping & Snow Removal in Morris County, NJ</h1>
           <p>
-            Lakeside Landscaping LLC provides dependable lawn mowing, landscaping projects,
-            hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal
-            for residential and commercial properties.
+            Owned by {ownerName}, Lakeside Landscaping LLC provides dependable lawn mowing,
+            landscaping projects, hardscaping, weeding, trimming, planting, leaf removal,
+            cleanups, and snow removal for residential and commercial properties.
           </p>
 
           <div class="buttons">
@@ -477,13 +497,14 @@ const logo = "/LLLogo.png";
         <div>
           <h2>Locally Owned Landscaping Service</h2>
           <p>
-            Lakeside Landscaping LLC is focused on honest communication, reliable scheduling,
-            and clean outdoor work. Whether you need routine lawn care, a seasonal cleanup,
-            landscaping help, or snow removal, we help keep your property looking its best.
+            Lakeside Landscaping LLC is locally owned by {ownerName} and focused on honest
+            communication, reliable scheduling, and clean outdoor work. Whether you need
+            routine lawn care, a seasonal cleanup, landscaping help, or snow removal, we help
+            keep your property looking its best.
           </p>
           <br />
           <p>
-            Contact us today for a free estimate and tell us what your property needs.
+            Contact Charles today for a free estimate and tell us what your property needs.
           </p>
         </div>
 
@@ -503,15 +524,21 @@ const logo = "/LLLogo.png";
       </section>
 
       <section id="contact" class="contact">
-        <h2>Get a Free Estimate</h2>
+        <h2>Contact Charles for a Free Estimate</h2>
         <p>
-          Call, text, or email Lakeside Landscaping LLC to schedule lawn mowing,
-          landscaping, cleanups, hardscaping, leaf removal, or snow removal services.
+          Call, text, or email {ownerName} at Lakeside Landscaping LLC to schedule
+          lawn mowing, landscaping, cleanups, hardscaping, leaf removal, or snow removal services.
         </p>
 
+        <div class="contact-info">
+          <p><strong>Owner:</strong> {ownerName}</p>
+          <p><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{phone}</a></p>
+          <p><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
+        </div>
+
         <div class="buttons" style="justify-content: center;">
-          <a class="btn btn-primary" href={`tel:${phoneHref}`}>{phone}</a>
-          <a class="btn btn-secondary" href={`mailto:${email}`}>{email}</a>
+          <a class="btn btn-primary" href={`tel:${phoneHref}`}>Call or Text {phone}</a>
+          <a class="btn btn-secondary" href={`mailto:${email}`}>Email Charles</a>
         </div>
       </section>
     </main>
