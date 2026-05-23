@@ -3,7 +3,8 @@ const businessName = "Lakeside Landscaping LLC";
 const phone = "(862) 241-9731";
 const phoneHref = "+18622419731";
 const email = "lakesidelandscaping25@gmail.com";
-const location = "Ocean County and surrounding areas in New Jersey";
+const location = "Morris County and surrounding areas in New Jersey";
+const logo = "/LLLogo.png";
 ---
 
 <!doctype html>
@@ -11,10 +12,10 @@ const location = "Ocean County and surrounding areas in New Jersey";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{businessName} | Lawn Care & Landscaping in NJ</title>
+    <title>{businessName} | Lawn Care & Landscaping in Morris County, NJ</title>
     <meta
       name="description"
-      content="Lakeside Landscaping LLC provides lawn mowing, landscaping projects, hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal in New Jersey."
+      content="Lakeside Landscaping LLC provides lawn mowing, landscaping projects, hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal in Morris County and surrounding areas in New Jersey."
     />
 
     <style>
@@ -233,6 +234,30 @@ const location = "Ocean County and surrounding areas in New Jersey";
         margin-bottom: 10px;
       }
 
+      .gallery {
+        background: var(--soft-green);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .gallery-card {
+        background: white;
+        border-radius: 20px;
+        min-height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 28px;
+        color: var(--navy);
+        font-weight: 800;
+        border: 2px dashed #b8d9c0;
+      }
+
       .about {
         background: white;
         display: grid;
@@ -261,30 +286,6 @@ const location = "Ocean County and surrounding areas in New Jersey";
         width: 100%;
         max-width: 420px;
         object-fit: contain;
-      }
-
-      .gallery {
-        background: var(--soft-green);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-      }
-
-      .gallery-card {
-        background: white;
-        border-radius: 20px;
-        min-height: 220px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 28px;
-        color: var(--navy);
-        font-weight: 800;
-        border: 2px dashed #b8d9c0;
       }
 
       .service-area {
@@ -359,7 +360,7 @@ const location = "Ocean County and surrounding areas in New Jersey";
   <body>
     <header>
       <a class="brand" href="#">
-        <img src="/logo.png" alt="Lakeside Landscaping LLC logo" />
+        <img src={logo} alt="Lakeside Landscaping LLC logo" />
         <div class="brand-text">
           <strong>Lakeside</strong>
           <span>Landscaping LLC</span>
@@ -378,7 +379,7 @@ const location = "Ocean County and surrounding areas in New Jersey";
     <main>
       <section class="hero">
         <div>
-          <h1>Lawn Care, Landscaping & Snow Removal in New Jersey</h1>
+          <h1>Lawn Care, Landscaping & Snow Removal in Morris County, NJ</h1>
           <p>
             Lakeside Landscaping LLC provides dependable lawn mowing, landscaping projects,
             hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal
@@ -392,7 +393,7 @@ const location = "Ocean County and surrounding areas in New Jersey";
         </div>
 
         <div class="hero-card">
-          <img src="/logo.png" alt="Lakeside Landscaping LLC logo" />
+          <img src={logo} alt="Lakeside Landscaping LLC logo" />
           <h2>Reliable Outdoor Property Care</h2>
           <ul>
             <li>✓ Free estimates available</li>
@@ -418,7 +419,7 @@ const location = "Ocean County and surrounding areas in New Jersey";
 
           <div class="card">
             <h3>Landscaping Projects</h3>
-            <p>Landscape refreshes, yard improvements, mulch, soil, beds, and general outdoor project work.</p>
+            <p>Landscape refreshes, yard improvements, mulch, soil, planting beds, and general outdoor project work.</p>
           </div>
 
           <div class="card">
@@ -486,7 +487,7 @@ const location = "Ocean County and surrounding areas in New Jersey";
         </div>
 
         <div class="about-logo-wrap">
-          <img src="/logo.png" alt="Lakeside Landscaping LLC logo" />
+          <img src={logo} alt="Lakeside Landscaping LLC logo" />
         </div>
       </section>
 
@@ -495,7 +496,7 @@ const location = "Ocean County and surrounding areas in New Jersey";
           <h2>Service Area</h2>
           <p>Serving residential and commercial customers in New Jersey.</p>
           <div class="towns">
-            Serving Ocean County and surrounding areas in New Jersey.
+            Serving Morris County and surrounding areas in New Jersey.
           </div>
         </div>
       </section>
