@@ -245,22 +245,37 @@ const logo = "/LLLogo.png";
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 26px;
       }
 
-      .gallery-card {
+      .gallery-photo-card {
         background: white;
-        border-radius: 20px;
-        min-height: 220px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 28px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(11, 61, 115, 0.12);
+        border: 1px solid #d9eadf;
+      }
+
+      .gallery-photo-card img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #000;
+      }
+
+      .gallery-caption {
+        padding: 20px;
+      }
+
+      .gallery-caption h3 {
         color: var(--navy);
-        font-weight: 800;
-        border: 2px dashed #b8d9c0;
+        margin-bottom: 8px;
+      }
+
+      .gallery-caption p {
+        color: #52616b;
       }
 
       .about {
@@ -487,13 +502,25 @@ const logo = "/LLLogo.png";
       <section id="gallery" class="gallery">
         <div class="section-title">
           <h2>Project Gallery</h2>
-          <p>Photos of completed lawn care and landscaping projects will be added soon.</p>
+          <p>Before and after photos from recent landscaping and cleanup projects.</p>
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-card">Before & After Photos Coming Soon</div>
-          <div class="gallery-card">Landscaping Projects Coming Soon</div>
-          <div class="gallery-card">Seasonal Cleanup Photos Coming Soon</div>
+          <div class="gallery-photo-card">
+            <img src="/BeforeAfter-Leaves.png" alt="Before and after leaf cleanup project" />
+            <div class="gallery-caption">
+              <h3>Leaf Cleanup & Yard Clearing</h3>
+              <p>Before and after cleanup with leaves, debris, and overgrown areas cleared out.</p>
+            </div>
+          </div>
+
+          <div class="gallery-photo-card">
+            <img src="/BeforeAfter-Flowers.png" alt="Before and after flower bed landscaping project" />
+            <div class="gallery-caption">
+              <h3>Flower Bed Cleanup & Planting</h3>
+              <p>Before and after landscaping refresh with trimming, cleanup, mulch, and planting.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -538,7 +565,6 @@ const logo = "/LLLogo.png";
           <p><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{phone}</a></p>
           <p><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
         </div>
-
       </section>
     </main>
 
