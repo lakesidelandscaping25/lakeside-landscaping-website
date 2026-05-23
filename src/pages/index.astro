@@ -109,52 +109,44 @@ const logo = "/LLLogo.png";
         font-weight: 800;
       }
 
-      nav a {
-        position: relative;
-      }
-
       nav a:hover {
         color: var(--green);
       }
 
       .hero {
-        min-height: 84vh;
-        padding: 90px 7%;
+        min-height: 82vh;
+        padding: 74px 7%;
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 46px;
+        grid-template-columns: minmax(0, 1fr) 420px;
+        gap: 56px;
         align-items: center;
         background:
-          linear-gradient(rgba(8, 45, 79, 0.76), rgba(13, 66, 35, 0.78)),
+          linear-gradient(
+            90deg,
+            rgba(8, 35, 62, 0.88) 0%,
+            rgba(9, 55, 35, 0.76) 52%,
+            rgba(9, 55, 35, 0.58) 100%
+          ),
           url("/Truck.png");
         background-size: cover;
-        background-position: 35% center;
+        background-position: 38% center;
         color: white;
       }
 
-      .eyebrow {
-        display: inline-block;
-        margin-bottom: 18px;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.14);
-        border: 1px solid rgba(255, 255, 255, 0.28);
-        font-weight: 800;
-        font-size: 0.9rem;
-        letter-spacing: 0.02em;
-      }
-
       .hero h1 {
-        font-size: clamp(2.35rem, 5vw, 4.8rem);
+        font-size: clamp(2.5rem, 4.5vw, 4.35rem);
         line-height: 1.05;
-        margin-bottom: 20px;
+        letter-spacing: -0.04em;
+        margin-bottom: 22px;
         max-width: 760px;
       }
 
       .hero p {
-        font-size: 1.15rem;
-        max-width: 650px;
-        margin-bottom: 28px;
+        font-size: 1.08rem;
+        max-width: 620px;
+        margin-bottom: 30px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.92);
       }
 
       .buttons {
@@ -164,8 +156,8 @@ const logo = "/LLLogo.png";
       }
 
       .btn {
-        padding: 14px 22px;
-        border-radius: 999px;
+        padding: 13px 22px;
+        border-radius: 12px;
         font-weight: 900;
         display: inline-block;
         transition: 0.2s ease;
@@ -183,7 +175,7 @@ const logo = "/LLLogo.png";
       }
 
       .btn-secondary {
-        border: 2px solid white;
+        border: 2px solid rgba(255, 255, 255, 0.9);
         color: white;
       }
 
@@ -194,25 +186,27 @@ const logo = "/LLLogo.png";
       }
 
       .hero-card {
-        background: rgba(255, 255, 255, 0.97);
+        background: rgba(255, 255, 255, 0.96);
         color: var(--text);
-        padding: 34px;
-        border-radius: 26px;
-        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
-        border-top: 8px solid var(--lake-blue);
+        padding: 30px;
+        border-radius: 22px;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-top: 6px solid var(--lake-blue);
       }
 
       .hero-card img {
-        width: 142px;
+        width: 118px;
         display: block;
         margin: 0 auto 18px;
       }
 
       .hero-card h2 {
-        margin-bottom: 16px;
+        margin-bottom: 18px;
         color: var(--navy);
         text-align: center;
-        font-size: 1.65rem;
+        font-size: 1.45rem;
+        line-height: 1.25;
       }
 
       .hero-card ul {
@@ -220,8 +214,9 @@ const logo = "/LLLogo.png";
       }
 
       .hero-card li {
-        margin: 11px 0;
+        margin: 10px 0;
         font-weight: 700;
+        font-size: 0.98rem;
       }
 
       section {
@@ -423,7 +418,11 @@ const logo = "/LLLogo.png";
         }
 
         .hero {
-          padding: 64px 7%;
+          padding: 58px 7%;
+          background:
+            linear-gradient(rgba(8, 35, 62, 0.84), rgba(9, 55, 35, 0.82)),
+            url("/Truck.png");
+          background-size: cover;
           background-position: center;
         }
 
@@ -456,16 +455,25 @@ const logo = "/LLLogo.png";
         }
 
         .hero {
-          padding: 54px 5%;
+          padding: 46px 5%;
           min-height: auto;
+          gap: 30px;
+          grid-template-columns: 1fr;
+          background:
+            linear-gradient(rgba(8, 35, 62, 0.84), rgba(9, 55, 35, 0.82)),
+            url("/Truck.png");
+          background-size: cover;
+          background-position: center;
         }
 
         .hero h1 {
-          font-size: 2.35rem;
+          font-size: 2.15rem;
+          line-height: 1.08;
         }
 
         .hero p {
           font-size: 1rem;
+          line-height: 1.65;
         }
 
         .buttons {
@@ -475,10 +483,19 @@ const logo = "/LLLogo.png";
         .btn {
           text-align: center;
           width: 100%;
+          border-radius: 12px;
         }
 
         .hero-card {
-          padding: 26px 22px;
+          padding: 24px 20px;
+        }
+
+        .hero-card img {
+          width: 105px;
+        }
+
+        .hero-card h2 {
+          font-size: 1.35rem;
         }
 
         section {
@@ -531,12 +548,11 @@ const logo = "/LLLogo.png";
     <main>
       <section class="hero">
         <div>
-          <span class="eyebrow">Free Estimates Available</span>
-          <h1>Lawn Care, Landscaping & Snow Removal in Morris County, NJ</h1>
+          <h1>Reliable Landscaping and Property Care in Morris County, NJ</h1>
           <p>
-            Lakeside Landscaping LLC provides dependable lawn mowing, landscaping projects,
-            hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal
-            for residential and commercial properties.
+            From weekly lawn mowing to seasonal cleanups, planting, hardscaping, and snow removal,
+            Lakeside Landscaping LLC helps keep residential and commercial properties clean,
+            maintained, and ready for every season.
           </p>
 
           <div class="buttons">
@@ -549,10 +565,10 @@ const logo = "/LLLogo.png";
           <img src={logo} alt="Lakeside Landscaping LLC logo" />
           <h2>Reliable Outdoor Property Care</h2>
           <ul>
-            <li>✓ Free estimates available</li>
-            <li>✓ Residential and commercial service</li>
-            <li>✓ Lawn mowing and maintenance</li>
-            <li>✓ Landscaping, planting, and cleanups</li>
+            <li>✓ Free estimates</li>
+            <li>✓ Residential and commercial properties</li>
+            <li>✓ Lawn mowing and routine maintenance</li>
+            <li>✓ Planting, trimming, and cleanup work</li>
             <li>✓ Leaf removal and snow removal</li>
           </ul>
         </div>
