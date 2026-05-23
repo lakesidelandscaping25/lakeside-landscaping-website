@@ -1,50 +1,370 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+const businessName = "Lakeside Landscaping LLC";
+const phone = "(908) 000-0000";
+const email = "lakesidelandscaping25@gmail.com";
+const location = "New Jersey";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{businessName} | Lawn Care & Landscaping in NJ</title>
+    <meta
+      name="description"
+      content="Lakeside Landscaping LLC provides lawn care, mulching, seasonal cleanups, shrub trimming, and property maintenance services in New Jersey."
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        color: #1f2933;
+        background: #f7faf7;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        background: #123524;
+        color: white;
+        padding: 18px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      nav {
+        display: flex;
+        gap: 20px;
+        font-size: 0.95rem;
+      }
+
+      nav a:hover {
+        color: #b7e4c7;
+      }
+
+      .hero {
+        min-height: 78vh;
+        padding: 90px 7%;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
+        background:
+          linear-gradient(rgba(18, 53, 36, 0.84), rgba(18, 53, 36, 0.84)),
+          url("https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.3rem, 5vw, 4.5rem);
+        line-height: 1.05;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.15rem;
+        max-width: 650px;
+        margin-bottom: 28px;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .btn {
+        padding: 13px 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #74c69d;
+        color: #102a1d;
+      }
+
+      .btn-secondary {
+        border: 2px solid white;
+        color: white;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.95);
+        color: #1f2933;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+      }
+
+      .hero-card h2 {
+        margin-bottom: 14px;
+        color: #123524;
+      }
+
+      .hero-card ul {
+        list-style: none;
+      }
+
+      .hero-card li {
+        margin: 10px 0;
+      }
+
+      section {
+        padding: 70px 7%;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 38px;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+        color: #123524;
+        margin-bottom: 10px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: 0 10px 25px rgba(18, 53, 36, 0.08);
+        border: 1px solid #e2e8e2;
+      }
+
+      .card h3 {
+        color: #123524;
+        margin-bottom: 10px;
+      }
+
+      .about {
+        background: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+      }
+
+      .about img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .service-area {
+        background: #e9f5ec;
+        text-align: center;
+      }
+
+      .towns {
+        max-width: 850px;
+        margin: 20px auto 0;
+        font-weight: 700;
+        color: #123524;
+      }
+
+      .contact {
+        background: #123524;
+        color: white;
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: 2.2rem;
+        margin-bottom: 14px;
+      }
+
+      .contact p {
+        max-width: 700px;
+        margin: 0 auto 24px;
+      }
+
+      footer {
+        background: #0b2418;
+        color: white;
+        text-align: center;
+        padding: 22px 7%;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 850px) {
+        header {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero,
+        .about {
+          grid-template-columns: 1fr;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 70px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">{businessName}</div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#area">Service Area</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Reliable Lawn Care & Landscaping in New Jersey</h1>
+          <p>
+            Lakeside Landscaping LLC provides dependable lawn maintenance, mulching,
+            seasonal cleanups, trimming, and outdoor property care for homeowners
+            and businesses.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href={`tel:${phone}`}>Call for a Free Estimate</a>
+            <a class="btn btn-secondary" href="#services">View Services</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>Quality Outdoor Work</h2>
+          <ul>
+            <li>✓ Lawn mowing and maintenance</li>
+            <li>✓ Mulching and bed cleanup</li>
+            <li>✓ Spring and fall cleanups</li>
+            <li>✓ Shrub trimming and property care</li>
+            <li>✓ Residential and commercial service</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>Simple, reliable landscaping services to keep your property looking clean.</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Lawn Care</h3>
+            <p>Routine mowing, edging, trimming, and blowing to keep your lawn neat and maintained.</p>
+          </div>
+
+          <div class="card">
+            <h3>Mulching</h3>
+            <p>Fresh mulch installation for flower beds, trees, and landscaped areas.</p>
+          </div>
+
+          <div class="card">
+            <h3>Seasonal Cleanups</h3>
+            <p>Spring and fall cleanups, leaf removal, and yard debris clearing.</p>
+          </div>
+
+          <div class="card">
+            <h3>Shrub Trimming</h3>
+            <p>Trimming and shaping for shrubs, hedges, bushes, and small landscape areas.</p>
+          </div>
+
+          <div class="card">
+            <h3>Planting & Beds</h3>
+            <p>Planting, flower bed cleanup, soil, edging, and basic landscape refreshes.</p>
+          </div>
+
+          <div class="card">
+            <h3>Property Maintenance</h3>
+            <p>Ongoing outdoor maintenance for homes, rental properties, and small businesses.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div>
+          <h2>Locally Owned Landscaping Service</h2>
+          <p>
+            Lakeside Landscaping LLC is focused on honest communication, reliable
+            scheduling, and clean outdoor work. Whether you need routine lawn care
+            or a full seasonal cleanup, we help keep your property looking its best.
+          </p>
+          <br />
+          <p>
+            Contact us today for a free estimate and tell us what your property needs.
+          </p>
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1599685315640-090c969b49c0?auto=format&fit=crop&w=1200&q=80"
+          alt="Landscaped yard with green lawn"
+        />
+      </section>
+
+      <section id="area" class="service-area">
+        <div class="section-title">
+          <h2>Service Area</h2>
+          <p>Serving homeowners and businesses throughout New Jersey.</p>
+          <div class="towns">
+            Add exact towns here: Branchburg, Bridgewater, Hillsborough, Somerville, Flemington, and surrounding areas.
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Get a Free Estimate</h2>
+        <p>
+          Call, text, or email Lakeside Landscaping LLC to schedule lawn care,
+          landscaping, or seasonal cleanup services.
+        </p>
+        <div class="buttons" style="justify-content: center;">
+          <a class="btn btn-primary" href={`tel:${phone}`}>{phone}</a>
+          <a class="btn btn-secondary" href={`mailto:${email}`}>{email}</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © {new Date().getFullYear()} {businessName}. All rights reserved. Serving {location}.
+    </footer>
+  </body>
 </html>
