@@ -33,12 +33,14 @@ const logo = "/LLLogo.png";
       :root {
         --navy: #0b3d73;
         --green: #1f6f2a;
-        --dark-green: #123f1f;
+        --dark-green: #0f3d22;
         --lake-blue: #4f8fd8;
         --light-blue: #dceefe;
         --soft-green: #eef7ef;
+        --cream: #f8fbf7;
         --white: #ffffff;
         --text: #1f2933;
+        --muted: #53616c;
       }
 
       html {
@@ -48,7 +50,7 @@ const logo = "/LLLogo.png";
       body {
         font-family: Arial, sans-serif;
         color: var(--text);
-        background: var(--soft-green);
+        background: var(--cream);
         line-height: 1.6;
       }
 
@@ -58,16 +60,17 @@ const logo = "/LLLogo.png";
       }
 
       header {
-        background: var(--white);
+        background: rgba(255, 255, 255, 0.96);
         color: var(--navy);
-        padding: 14px 7%;
+        padding: 12px 7%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: sticky;
         top: 0;
-        z-index: 10;
+        z-index: 20;
         box-shadow: 0 4px 18px rgba(11, 61, 115, 0.12);
+        backdrop-filter: blur(10px);
       }
 
       .brand {
@@ -77,8 +80,8 @@ const logo = "/LLLogo.png";
       }
 
       .brand img {
-        width: 62px;
-        height: 62px;
+        width: 58px;
+        height: 58px;
         object-fit: contain;
       }
 
@@ -96,14 +99,18 @@ const logo = "/LLLogo.png";
       .brand-text span {
         font-size: 0.85rem;
         color: var(--green);
-        font-weight: 700;
+        font-weight: 800;
       }
 
       nav {
         display: flex;
         gap: 22px;
         font-size: 0.95rem;
-        font-weight: 700;
+        font-weight: 800;
+      }
+
+      nav a {
+        position: relative;
       }
 
       nav a:hover {
@@ -111,24 +118,37 @@ const logo = "/LLLogo.png";
       }
 
       .hero {
-        min-height: 82vh;
+        min-height: 84vh;
         padding: 90px 7%;
         display: grid;
         grid-template-columns: 1.05fr 0.95fr;
-        gap: 45px;
+        gap: 46px;
         align-items: center;
         background:
-          linear-gradient(rgba(11, 61, 115, 0.72), rgba(18, 63, 31, 0.78)),
+          linear-gradient(rgba(8, 45, 79, 0.76), rgba(13, 66, 35, 0.78)),
           url("/Truck.png");
         background-size: cover;
         background-position: 35% center;
         color: white;
       }
 
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 18px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        font-weight: 800;
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+      }
+
       .hero h1 {
-        font-size: clamp(2.3rem, 5vw, 4.6rem);
+        font-size: clamp(2.35rem, 5vw, 4.8rem);
         line-height: 1.05;
         margin-bottom: 20px;
+        max-width: 760px;
       }
 
       .hero p {
@@ -144,10 +164,11 @@ const logo = "/LLLogo.png";
       }
 
       .btn {
-        padding: 13px 22px;
+        padding: 14px 22px;
         border-radius: 999px;
-        font-weight: 800;
+        font-weight: 900;
         display: inline-block;
+        transition: 0.2s ease;
       }
 
       .btn-primary {
@@ -158,6 +179,7 @@ const logo = "/LLLogo.png";
 
       .btn-primary:hover {
         background: var(--navy);
+        transform: translateY(-2px);
       }
 
       .btn-secondary {
@@ -168,27 +190,29 @@ const logo = "/LLLogo.png";
       .btn-secondary:hover {
         background: white;
         color: var(--navy);
+        transform: translateY(-2px);
       }
 
       .hero-card {
-        background: rgba(255, 255, 255, 0.96);
+        background: rgba(255, 255, 255, 0.97);
         color: var(--text);
         padding: 34px;
-        border-radius: 24px;
-        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.2);
+        border-radius: 26px;
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
         border-top: 8px solid var(--lake-blue);
       }
 
       .hero-card img {
-        width: 150px;
+        width: 142px;
         display: block;
         margin: 0 auto 18px;
       }
 
       .hero-card h2 {
-        margin-bottom: 14px;
+        margin-bottom: 16px;
         color: var(--navy);
         text-align: center;
+        font-size: 1.65rem;
       }
 
       .hero-card ul {
@@ -196,27 +220,28 @@ const logo = "/LLLogo.png";
       }
 
       .hero-card li {
-        margin: 10px 0;
-        font-weight: 600;
+        margin: 11px 0;
+        font-weight: 700;
       }
 
       section {
-        padding: 72px 7%;
+        padding: 76px 7%;
       }
 
       .section-title {
         text-align: center;
-        margin-bottom: 38px;
+        margin-bottom: 42px;
       }
 
       .section-title h2 {
-        font-size: 2.2rem;
+        font-size: clamp(2rem, 4vw, 3rem);
         color: var(--navy);
         margin-bottom: 10px;
       }
 
       .section-title p {
-        color: #52616b;
+        color: var(--muted);
+        font-size: 1.05rem;
       }
 
       .grid {
@@ -227,7 +252,7 @@ const logo = "/LLLogo.png";
 
       .card {
         background: white;
-        border-radius: 20px;
+        border-radius: 22px;
         padding: 28px;
         box-shadow: 0 10px 25px rgba(11, 61, 115, 0.08);
         border: 1px solid #d9eadf;
@@ -237,68 +262,78 @@ const logo = "/LLLogo.png";
       .card h3 {
         color: var(--navy);
         margin-bottom: 10px;
+        font-size: 1.25rem;
+      }
+
+      .card p {
+        color: var(--muted);
       }
 
       .gallery {
-  background: #f4f8f4;
-}
+        background: #f4f8f4;
+      }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  max-width: 950px;
-  margin: 0 auto;
-}
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 34px;
+        max-width: 980px;
+        margin: 0 auto;
+      }
 
-.gallery-photo-card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(11, 61, 115, 0.10);
-  border: 1px solid #dfe9e0;
-}
+      .gallery-photo-card {
+        background: white;
+        border-radius: 26px;
+        overflow: hidden;
+        box-shadow: 0 14px 34px rgba(11, 61, 115, 0.11);
+        border: 1px solid #dfe9e0;
+      }
 
-.gallery-photo-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  background: #f8f8f8;
-}
+      .gallery-photo-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #f8f8f8;
+      }
 
-.gallery-caption {
-  padding: 24px 26px 28px;
-}
+      .gallery-caption {
+        padding: 24px 28px 30px;
+      }
 
-.gallery-caption h3 {
-  color: var(--navy);
-  margin-bottom: 10px;
-  font-size: 2rem;
-}
+      .gallery-caption h3 {
+        color: var(--navy);
+        margin-bottom: 10px;
+        font-size: clamp(1.45rem, 3vw, 2rem);
+      }
 
-.gallery-caption p {
-  color: #52616b;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
+      .gallery-caption p {
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
 
       .about {
         background: white;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 45px;
+        gap: 48px;
         align-items: center;
       }
 
       .about h2 {
         color: var(--navy);
-        font-size: 2.1rem;
+        font-size: clamp(2rem, 4vw, 2.7rem);
         margin-bottom: 16px;
+      }
+
+      .about p {
+        color: var(--muted);
+        font-size: 1.05rem;
       }
 
       .about-logo-wrap {
         background: linear-gradient(135deg, var(--soft-green), var(--light-blue));
-        border-radius: 26px;
+        border-radius: 28px;
         padding: 35px;
         display: flex;
         justify-content: center;
@@ -308,7 +343,7 @@ const logo = "/LLLogo.png";
 
       .about-logo-wrap img {
         width: 100%;
-        max-width: 420px;
+        max-width: 400px;
         object-fit: contain;
       }
 
@@ -320,8 +355,9 @@ const logo = "/LLLogo.png";
       .towns {
         max-width: 850px;
         margin: 20px auto 0;
-        font-weight: 800;
+        font-weight: 900;
         color: var(--green);
+        font-size: 1.15rem;
       }
 
       .contact {
@@ -331,31 +367,33 @@ const logo = "/LLLogo.png";
       }
 
       .contact h2 {
-        font-size: 2.2rem;
+        font-size: clamp(2rem, 4vw, 3rem);
         margin-bottom: 14px;
       }
 
       .contact p {
-        max-width: 700px;
+        max-width: 740px;
         margin: 0 auto 24px;
+        font-size: 1.05rem;
       }
 
       .contact-info {
-        max-width: 520px;
-        margin: 0 auto 26px;
-        padding: 22px;
+        max-width: 540px;
+        margin: 0 auto 10px;
+        padding: 24px;
         background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 20px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
       }
 
       .contact-info p {
-        margin: 6px auto;
+        margin: 8px auto;
       }
 
       .contact-info a {
         color: white;
-        font-weight: 800;
+        font-weight: 900;
         text-decoration: underline;
       }
 
@@ -364,10 +402,10 @@ const logo = "/LLLogo.png";
         color: white;
         text-align: center;
         padding: 24px 7%;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
 
-      @media (max-width: 850px) {
+      @media (max-width: 950px) {
         header {
           flex-direction: column;
           gap: 12px;
@@ -376,6 +414,7 @@ const logo = "/LLLogo.png";
         nav {
           flex-wrap: wrap;
           justify-content: center;
+          gap: 14px;
         }
 
         .hero,
@@ -383,19 +422,88 @@ const logo = "/LLLogo.png";
           grid-template-columns: 1fr;
         }
 
+        .hero {
+          padding: 64px 7%;
+          background-position: center;
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 650px) {
+        header {
+          padding: 12px 5%;
+        }
+
+        .brand img {
+          width: 52px;
+          height: 52px;
+        }
+
+        .brand-text strong {
+          font-size: 1rem;
+        }
+
+        .brand-text span {
+          font-size: 0.78rem;
+        }
+
+        nav {
+          font-size: 0.84rem;
+          gap: 10px;
+        }
+
+        .hero {
+          padding: 54px 5%;
+          min-height: auto;
+        }
+
+        .hero h1 {
+          font-size: 2.35rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          text-align: center;
+          width: 100%;
+        }
+
+        .hero-card {
+          padding: 26px 22px;
+        }
+
+        section {
+          padding: 58px 5%;
+        }
+
         .grid,
         .gallery-grid {
           grid-template-columns: 1fr;
         }
 
-        .hero {
-          padding-top: 70px;
-          background-position: center;
+        .gallery-caption {
+          padding: 20px;
         }
 
-        .brand img {
-          width: 54px;
-          height: 54px;
+        .about-logo-wrap {
+          padding: 24px;
+        }
+
+        .contact-info {
+          padding: 20px;
+        }
+
+        footer {
+          font-size: 0.85rem;
         }
       }
     </style>
@@ -423,11 +531,12 @@ const logo = "/LLLogo.png";
     <main>
       <section class="hero">
         <div>
+          <span class="eyebrow">Free Estimates Available</span>
           <h1>Lawn Care, Landscaping & Snow Removal in Morris County, NJ</h1>
           <p>
-            Owned by {ownerName}, Lakeside Landscaping LLC provides dependable lawn mowing,
-            landscaping projects, hardscaping, weeding, trimming, planting, leaf removal,
-            cleanups, and snow removal for residential and commercial properties.
+            Lakeside Landscaping LLC provides dependable lawn mowing, landscaping projects,
+            hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal
+            for residential and commercial properties.
           </p>
 
           <div class="buttons">
@@ -514,7 +623,7 @@ const logo = "/LLLogo.png";
             <img src="/BeforeAfter-Leaves.png" alt="Before and after leaf cleanup project" />
             <div class="gallery-caption">
               <h3>Leaf Cleanup & Yard Clearing</h3>
-              <p>Before and after cleanup with leaves, debris, and overgrown areas cleared out.</p>
+              <p>Cleanup project showing leaves, debris, and overgrowth removed for a cleaner, more usable outdoor space.</p>
             </div>
           </div>
 
@@ -522,7 +631,7 @@ const logo = "/LLLogo.png";
             <img src="/BeforeAfter-Flowers.png" alt="Before and after flower bed landscaping project" />
             <div class="gallery-caption">
               <h3>Flower Bed Cleanup & Planting</h3>
-              <p>Before and after landscaping refresh with trimming, cleanup, mulch, and planting.</p>
+              <p>Landscape refresh featuring trimmed shrubs, cleanup, bed improvement, and new planting for better curb appeal.</p>
             </div>
           </div>
         </div>
@@ -532,14 +641,13 @@ const logo = "/LLLogo.png";
         <div>
           <h2>Locally Owned Landscaping Service</h2>
           <p>
-            Lakeside Landscaping LLC is locally owned by {ownerName} and focused on honest
-            communication, reliable scheduling, and clean outdoor work. Whether you need
-            routine lawn care, a seasonal cleanup, landscaping help, or snow removal, we help
-            keep your property looking its best.
+            Lakeside Landscaping LLC is focused on honest communication, reliable scheduling,
+            and clean outdoor work. Whether you need routine lawn care, a seasonal cleanup,
+            landscaping help, or snow removal, we help keep your property looking its best.
           </p>
           <br />
           <p>
-            Contact Charlie today for a free estimate and tell us what your property needs.
+            Contact us today for a free estimate and tell us what your property needs.
           </p>
         </div>
 
@@ -559,13 +667,14 @@ const logo = "/LLLogo.png";
       </section>
 
       <section id="contact" class="contact">
-        <h2>Contact Charlie for a Free Estimate</h2>
+        <h2>Contact Us for a Free Estimate</h2>
         <p>
-          Call, text, or email {ownerName} at Lakeside Landscaping LLC to schedule
-          lawn mowing, landscaping, cleanups, hardscaping, leaf removal, or snow removal services.
+          Call, text, or email Lakeside Landscaping LLC to schedule lawn mowing,
+          landscaping, cleanups, hardscaping, leaf removal, or snow removal services.
         </p>
 
         <div class="contact-info">
+          <p><strong>Owner:</strong> {ownerName}</p>
           <p><strong>Phone:</strong> <a href={`tel:${phoneHref}`}>{phone}</a></p>
           <p><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
         </div>
