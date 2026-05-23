@@ -1,8 +1,9 @@
 ---
 const businessName = "Lakeside Landscaping LLC";
-const phone = "(908) 000-0000";
+const phone = "(862) 241-9731";
+const phoneHref = "+18622419731";
 const email = "lakesidelandscaping25@gmail.com";
-const location = "New Jersey";
+const location = "Ocean County and surrounding areas in New Jersey";
 ---
 
 <!doctype html>
@@ -13,8 +14,9 @@ const location = "New Jersey";
     <title>{businessName} | Lawn Care & Landscaping in NJ</title>
     <meta
       name="description"
-      content="Lakeside Landscaping LLC provides lawn care, mulching, seasonal cleanups, shrub trimming, and property maintenance services in New Jersey."
+      content="Lakeside Landscaping LLC provides lawn mowing, landscaping projects, hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal in New Jersey."
     />
+
     <style>
       * {
         box-sizing: border-box;
@@ -22,10 +24,25 @@ const location = "New Jersey";
         padding: 0;
       }
 
+      :root {
+        --navy: #0b3d73;
+        --green: #1f6f2a;
+        --dark-green: #123f1f;
+        --lake-blue: #4f8fd8;
+        --light-blue: #dceefe;
+        --soft-green: #eef7ef;
+        --white: #ffffff;
+        --text: #1f2933;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: Arial, sans-serif;
-        color: #1f2933;
-        background: #f7faf7;
+        color: var(--text);
+        background: var(--soft-green);
         line-height: 1.6;
       }
 
@@ -35,41 +52,67 @@ const location = "New Jersey";
       }
 
       header {
-        background: #123524;
-        color: white;
-        padding: 18px 7%;
+        background: var(--white);
+        color: var(--navy);
+        padding: 14px 7%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: sticky;
         top: 0;
         z-index: 10;
+        box-shadow: 0 4px 18px rgba(11, 61, 115, 0.12);
       }
 
-      .logo {
-        font-size: 1.3rem;
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 62px;
+        height: 62px;
+        object-fit: contain;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .brand-text strong {
+        font-size: 1.2rem;
+        color: var(--navy);
+      }
+
+      .brand-text span {
+        font-size: 0.85rem;
+        color: var(--green);
         font-weight: 700;
       }
 
       nav {
         display: flex;
-        gap: 20px;
+        gap: 22px;
         font-size: 0.95rem;
+        font-weight: 700;
       }
 
       nav a:hover {
-        color: #b7e4c7;
+        color: var(--green);
       }
 
       .hero {
-        min-height: 78vh;
+        min-height: 82vh;
         padding: 90px 7%;
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 40px;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 45px;
         align-items: center;
         background:
-          linear-gradient(rgba(18, 53, 36, 0.84), rgba(18, 53, 36, 0.84)),
+          linear-gradient(rgba(11, 61, 115, 0.82), rgba(18, 63, 31, 0.86)),
           url("https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=80");
         background-size: cover;
         background-position: center;
@@ -77,7 +120,7 @@ const location = "New Jersey";
       }
 
       .hero h1 {
-        font-size: clamp(2.3rem, 5vw, 4.5rem);
+        font-size: clamp(2.3rem, 5vw, 4.6rem);
         line-height: 1.05;
         margin-bottom: 20px;
       }
@@ -97,13 +140,18 @@ const location = "New Jersey";
       .btn {
         padding: 13px 22px;
         border-radius: 999px;
-        font-weight: 700;
+        font-weight: 800;
         display: inline-block;
       }
 
       .btn-primary {
-        background: #74c69d;
-        color: #102a1d;
+        background: var(--lake-blue);
+        color: white;
+        box-shadow: 0 8px 20px rgba(79, 143, 216, 0.28);
+      }
+
+      .btn-primary:hover {
+        background: var(--navy);
       }
 
       .btn-secondary {
@@ -111,17 +159,30 @@ const location = "New Jersey";
         color: white;
       }
 
+      .btn-secondary:hover {
+        background: white;
+        color: var(--navy);
+      }
+
       .hero-card {
-        background: rgba(255, 255, 255, 0.95);
-        color: #1f2933;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--text);
+        padding: 34px;
+        border-radius: 24px;
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.2);
+        border-top: 8px solid var(--lake-blue);
+      }
+
+      .hero-card img {
+        width: 150px;
+        display: block;
+        margin: 0 auto 18px;
       }
 
       .hero-card h2 {
         margin-bottom: 14px;
-        color: #123524;
+        color: var(--navy);
+        text-align: center;
       }
 
       .hero-card ul {
@@ -130,10 +191,11 @@ const location = "New Jersey";
 
       .hero-card li {
         margin: 10px 0;
+        font-weight: 600;
       }
 
       section {
-        padding: 70px 7%;
+        padding: 72px 7%;
       }
 
       .section-title {
@@ -143,8 +205,12 @@ const location = "New Jersey";
 
       .section-title h2 {
         font-size: 2.2rem;
-        color: #123524;
+        color: var(--navy);
         margin-bottom: 10px;
+      }
+
+      .section-title p {
+        color: #52616b;
       }
 
       .grid {
@@ -155,14 +221,15 @@ const location = "New Jersey";
 
       .card {
         background: white;
-        border-radius: 18px;
+        border-radius: 20px;
         padding: 28px;
-        box-shadow: 0 10px 25px rgba(18, 53, 36, 0.08);
-        border: 1px solid #e2e8e2;
+        box-shadow: 0 10px 25px rgba(11, 61, 115, 0.08);
+        border: 1px solid #d9eadf;
+        border-top: 5px solid var(--green);
       }
 
       .card h3 {
-        color: #123524;
+        color: var(--navy);
         margin-bottom: 10px;
       }
 
@@ -174,26 +241,66 @@ const location = "New Jersey";
         align-items: center;
       }
 
-      .about img {
+      .about h2 {
+        color: var(--navy);
+        font-size: 2.1rem;
+        margin-bottom: 16px;
+      }
+
+      .about-logo-wrap {
+        background: linear-gradient(135deg, var(--soft-green), var(--light-blue));
+        border-radius: 26px;
+        padding: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-logo-wrap img {
         width: 100%;
+        max-width: 420px;
+        object-fit: contain;
+      }
+
+      .gallery {
+        background: var(--soft-green);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .gallery-card {
+        background: white;
         border-radius: 20px;
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+        min-height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 28px;
+        color: var(--navy);
+        font-weight: 800;
+        border: 2px dashed #b8d9c0;
       }
 
       .service-area {
-        background: #e9f5ec;
+        background: linear-gradient(135deg, var(--light-blue), var(--soft-green));
         text-align: center;
       }
 
       .towns {
         max-width: 850px;
         margin: 20px auto 0;
-        font-weight: 700;
-        color: #123524;
+        font-weight: 800;
+        color: var(--green);
       }
 
       .contact {
-        background: #123524;
+        background: linear-gradient(135deg, var(--navy), var(--dark-green));
         color: white;
         text-align: center;
       }
@@ -209,10 +316,10 @@ const location = "New Jersey";
       }
 
       footer {
-        background: #0b2418;
+        background: #082b1a;
         color: white;
         text-align: center;
-        padding: 22px 7%;
+        padding: 24px 7%;
         font-size: 0.9rem;
       }
 
@@ -232,12 +339,18 @@ const location = "New Jersey";
           grid-template-columns: 1fr;
         }
 
-        .grid {
+        .grid,
+        .gallery-grid {
           grid-template-columns: 1fr;
         }
 
         .hero {
           padding-top: 70px;
+        }
+
+        .brand img {
+          width: 54px;
+          height: 54px;
         }
       }
     </style>
@@ -245,9 +358,17 @@ const location = "New Jersey";
 
   <body>
     <header>
-      <div class="logo">{businessName}</div>
+      <a class="brand" href="#">
+        <img src="/logo.png" alt="Lakeside Landscaping LLC logo" />
+        <div class="brand-text">
+          <strong>Lakeside</strong>
+          <span>Landscaping LLC</span>
+        </div>
+      </a>
+
       <nav>
         <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#area">Service Area</a>
         <a href="#contact">Contact</a>
@@ -257,26 +378,28 @@ const location = "New Jersey";
     <main>
       <section class="hero">
         <div>
-          <h1>Reliable Lawn Care & Landscaping in New Jersey</h1>
+          <h1>Lawn Care, Landscaping & Snow Removal in New Jersey</h1>
           <p>
-            Lakeside Landscaping LLC provides dependable lawn maintenance, mulching,
-            seasonal cleanups, trimming, and outdoor property care for homeowners
-            and businesses.
+            Lakeside Landscaping LLC provides dependable lawn mowing, landscaping projects,
+            hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal
+            for residential and commercial properties.
           </p>
+
           <div class="buttons">
-            <a class="btn btn-primary" href={`tel:${phone}`}>Call for a Free Estimate</a>
+            <a class="btn btn-primary" href={`tel:${phoneHref}`}>Call for a Free Estimate</a>
             <a class="btn btn-secondary" href="#services">View Services</a>
           </div>
         </div>
 
         <div class="hero-card">
-          <h2>Quality Outdoor Work</h2>
+          <img src="/logo.png" alt="Lakeside Landscaping LLC logo" />
+          <h2>Reliable Outdoor Property Care</h2>
           <ul>
-            <li>✓ Lawn mowing and maintenance</li>
-            <li>✓ Mulching and bed cleanup</li>
-            <li>✓ Spring and fall cleanups</li>
-            <li>✓ Shrub trimming and property care</li>
+            <li>✓ Free estimates available</li>
             <li>✓ Residential and commercial service</li>
+            <li>✓ Lawn mowing and maintenance</li>
+            <li>✓ Landscaping, planting, and cleanups</li>
+            <li>✓ Leaf removal and snow removal</li>
           </ul>
         </div>
       </section>
@@ -284,39 +407,67 @@ const location = "New Jersey";
       <section id="services">
         <div class="section-title">
           <h2>Our Services</h2>
-          <p>Simple, reliable landscaping services to keep your property looking clean.</p>
+          <p>Outdoor services to keep your property clean, maintained, and ready for every season.</p>
         </div>
 
         <div class="grid">
           <div class="card">
-            <h3>Lawn Care</h3>
-            <p>Routine mowing, edging, trimming, and blowing to keep your lawn neat and maintained.</p>
+            <h3>Lawn Mowing</h3>
+            <p>Routine lawn mowing, edging, trimming, and blowing for a clean, maintained property.</p>
           </div>
 
           <div class="card">
-            <h3>Mulching</h3>
-            <p>Fresh mulch installation for flower beds, trees, and landscaped areas.</p>
+            <h3>Landscaping Projects</h3>
+            <p>Landscape refreshes, yard improvements, mulch, soil, beds, and general outdoor project work.</p>
           </div>
 
           <div class="card">
-            <h3>Seasonal Cleanups</h3>
-            <p>Spring and fall cleanups, leaf removal, and yard debris clearing.</p>
+            <h3>Hardscaping</h3>
+            <p>Hardscape-related outdoor improvements such as stone, edging, walkways, and similar projects.</p>
           </div>
 
           <div class="card">
-            <h3>Shrub Trimming</h3>
-            <p>Trimming and shaping for shrubs, hedges, bushes, and small landscape areas.</p>
+            <h3>Weeding & Trimming</h3>
+            <p>Weeding, trimming, hedge care, shrub shaping, and cleanup around landscaped areas.</p>
           </div>
 
           <div class="card">
-            <h3>Planting & Beds</h3>
-            <p>Planting, flower bed cleanup, soil, edging, and basic landscape refreshes.</p>
+            <h3>Planting</h3>
+            <p>Planting flowers, shrubs, and greenery to improve the look of your outdoor space.</p>
           </div>
 
           <div class="card">
-            <h3>Property Maintenance</h3>
-            <p>Ongoing outdoor maintenance for homes, rental properties, and small businesses.</p>
+            <h3>Leaf Removal & Cleanups</h3>
+            <p>Seasonal cleanups, fall leaf removal, yard debris removal, and property cleanup services.</p>
           </div>
+
+          <div class="card">
+            <h3>Snow Removal</h3>
+            <p>Snow removal services to help keep residential and commercial properties accessible in winter.</p>
+          </div>
+
+          <div class="card">
+            <h3>Residential Service</h3>
+            <p>Lawn and landscaping care for homeowners looking for reliable property maintenance.</p>
+          </div>
+
+          <div class="card">
+            <h3>Commercial Service</h3>
+            <p>Outdoor maintenance and seasonal services for businesses and commercial properties.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery">
+        <div class="section-title">
+          <h2>Project Gallery</h2>
+          <p>Photos of completed lawn care and landscaping projects will be added soon.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">Before & After Photos Coming Soon</div>
+          <div class="gallery-card">Landscaping Projects Coming Soon</div>
+          <div class="gallery-card">Seasonal Cleanup Photos Coming Soon</div>
         </div>
       </section>
 
@@ -324,9 +475,9 @@ const location = "New Jersey";
         <div>
           <h2>Locally Owned Landscaping Service</h2>
           <p>
-            Lakeside Landscaping LLC is focused on honest communication, reliable
-            scheduling, and clean outdoor work. Whether you need routine lawn care
-            or a full seasonal cleanup, we help keep your property looking its best.
+            Lakeside Landscaping LLC is focused on honest communication, reliable scheduling,
+            and clean outdoor work. Whether you need routine lawn care, a seasonal cleanup,
+            landscaping help, or snow removal, we help keep your property looking its best.
           </p>
           <br />
           <p>
@@ -334,18 +485,17 @@ const location = "New Jersey";
           </p>
         </div>
 
-        <img
-          src="https://images.unsplash.com/photo-1599685315640-090c969b49c0?auto=format&fit=crop&w=1200&q=80"
-          alt="Landscaped yard with green lawn"
-        />
+        <div class="about-logo-wrap">
+          <img src="/logo.png" alt="Lakeside Landscaping LLC logo" />
+        </div>
       </section>
 
       <section id="area" class="service-area">
         <div class="section-title">
           <h2>Service Area</h2>
-          <p>Serving homeowners and businesses throughout New Jersey.</p>
+          <p>Serving residential and commercial customers in New Jersey.</p>
           <div class="towns">
-            Add exact towns here: Branchburg, Bridgewater, Hillsborough, Somerville, Flemington, and surrounding areas.
+            Serving Ocean County and surrounding areas in New Jersey.
           </div>
         </div>
       </section>
@@ -353,11 +503,12 @@ const location = "New Jersey";
       <section id="contact" class="contact">
         <h2>Get a Free Estimate</h2>
         <p>
-          Call, text, or email Lakeside Landscaping LLC to schedule lawn care,
-          landscaping, or seasonal cleanup services.
+          Call, text, or email Lakeside Landscaping LLC to schedule lawn mowing,
+          landscaping, cleanups, hardscaping, leaf removal, or snow removal services.
         </p>
+
         <div class="buttons" style="justify-content: center;">
-          <a class="btn btn-primary" href={`tel:${phone}`}>{phone}</a>
+          <a class="btn btn-primary" href={`tel:${phoneHref}`}>{phone}</a>
           <a class="btn btn-secondary" href={`mailto:${email}`}>{email}</a>
         </div>
       </section>
