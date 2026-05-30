@@ -7,6 +7,9 @@ const email = "lakesidelandscaping25@gmail.com";
 const location = "Morris County and surrounding areas in New Jersey";
 const logo = "/LLLogo.png";
 const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
+const siteUrl = "https://lakeside-landscaping-llc.com/";
+const seoTitle = "Lakeside Landscaping LLC | Morris County, NJ";
+const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups, planting, hardscaping, leaf removal, and snow removal in Morris County, NJ.";
 ---
 
 <!doctype html>
@@ -15,15 +18,97 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>{seoTitle}</title>
+    <meta name="description" content={seoDescription} />
+    <link rel="canonical" href={siteUrl} />
+
     <link rel="icon" type="image/png" href="/LLLogo.png" />
     <link rel="apple-touch-icon" href="/LLLogo.png" />
     <link rel="preload" as="image" href="/Truck.webp" />
 
-    <title>{businessName} | Lawn Care & Landscaping in Morris County, NJ</title>
-    <meta
-      name="description"
-      content="Lakeside Landscaping LLC provides lawn mowing, landscaping projects, hardscaping, weeding, trimming, planting, leaf removal, cleanups, and snow removal in Morris County and surrounding areas in New Jersey."
-    />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
+    <meta property="og:image" content="https://lakeside-landscaping-llc.com/LLLogo.png" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={businessName} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={seoDescription} />
+    <meta name="twitter:image" content="https://lakeside-landscaping-llc.com/LLLogo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LandscapingBusiness",
+        "name": "Lakeside Landscaping LLC",
+        "url": "https://lakeside-landscaping-llc.com/",
+        "logo": "https://lakeside-landscaping-llc.com/LLLogo.png",
+        "image": "https://lakeside-landscaping-llc.com/LLLogo.png",
+        "telephone": "+18622419371",
+        "email": "lakesidelandscaping25@gmail.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Charlie Oberman"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Morris County, NJ"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        },
+        "description": "Lakeside Landscaping LLC provides lawn mowing, landscaping, cleanups, planting, hardscaping, leaf removal, and snow removal in Morris County, NJ.",
+        "priceRange": "$$",
+        "sameAs": [
+          "https://g.page/r/Cc8fX3vmupGEEAE/review"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Landscaping Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Lawn Mowing"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Landscaping Projects"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Hardscaping"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Leaf Removal and Cleanups"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Snow Removal"
+              }
+            }
+          ]
+        }
+      }
+    </script>
 
     <style>
       * {
