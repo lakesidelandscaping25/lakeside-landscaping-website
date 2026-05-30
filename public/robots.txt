@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lakeside-landscaping-llc.com/sitemap.xml
