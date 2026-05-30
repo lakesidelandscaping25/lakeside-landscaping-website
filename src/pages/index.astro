@@ -382,15 +382,15 @@ const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups,
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 34px;
-        max-width: 980px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        max-width: 1180px;
         margin: 0 auto;
       }
 
       .gallery-photo-card {
         background: white;
-        border-radius: 26px;
+        border-radius: 24px;
         overflow: hidden;
         box-shadow: 0 14px 34px rgba(11, 61, 115, 0.11);
         border: 1px solid #dfe9e0;
@@ -398,25 +398,26 @@ const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups,
 
       .gallery-photo-card img {
         width: 100%;
-        height: auto;
+        height: 360px;
         display: block;
+        object-fit: cover;
         background: #f8f8f8;
       }
 
       .gallery-caption {
-        padding: 24px 28px 30px;
+        padding: 22px 24px 26px;
       }
 
       .gallery-caption h3 {
         color: var(--navy);
-        margin-bottom: 10px;
-        font-size: clamp(1.45rem, 3vw, 2rem);
+        margin-bottom: 8px;
+        font-size: 1.45rem;
       }
 
       .gallery-caption p {
         color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.7;
+        font-size: 1rem;
+        line-height: 1.65;
       }
 
       .about {
@@ -653,6 +654,10 @@ const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups,
           grid-template-columns: 1fr;
         }
 
+        .gallery-photo-card img {
+          height: auto;
+        }
+
         .gallery-caption {
           padding: 20px;
         }
@@ -787,7 +792,7 @@ const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups,
       <section id="gallery" class="gallery">
         <div class="section-title">
           <h2>Project Gallery</h2>
-          <p>Before and after photos from recent landscaping and cleanup projects.</p>
+          <p>Photos from recent landscaping, cleanup, and property maintenance projects.</p>
         </div>
 
         <div class="gallery-grid">
@@ -801,7 +806,7 @@ const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups,
             />
             <div class="gallery-caption">
               <h3>Leaf Cleanup & Yard Clearing</h3>
-              <p>Cleanup project showing leaves, debris, and overgrowth removed for a cleaner, more usable outdoor space.</p>
+              <p>Leaves, debris, and overgrown areas cleared for a cleaner outdoor space.</p>
             </div>
           </div>
 
@@ -815,7 +820,49 @@ const seoDescription = "Lakeside Landscaping LLC provides lawn mowing, cleanups,
             />
             <div class="gallery-caption">
               <h3>Flower Bed Cleanup & Planting</h3>
-              <p>Landscape refresh featuring trimmed shrubs, cleanup, bed improvement, and new planting for better curb appeal.</p>
+              <p>Landscape refresh with trimming, cleanup, planting, and improved curb appeal.</p>
+            </div>
+          </div>
+
+          <div class="gallery-photo-card">
+            <img
+              src="/BeforeAfter-Mulch.webp"
+              alt="Before and after mulch landscaping project"
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
+            <div class="gallery-caption">
+              <h3>Mulch & Bed Refresh</h3>
+              <p>Fresh mulch and cleanup work to improve the look of landscaped areas.</p>
+            </div>
+          </div>
+
+          <div class="gallery-photo-card">
+            <img
+              src="/Looking%20Down.webp"
+              alt="Landscaping project view"
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
+            <div class="gallery-caption">
+              <h3>Property Cleanup Work</h3>
+              <p>Clean outdoor maintenance work for a neat and well-kept property.</p>
+            </div>
+          </div>
+
+          <div class="gallery-photo-card">
+            <img
+              src="/Thumbs%20Up.webp"
+              alt="Completed landscaping work"
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
+            <div class="gallery-caption">
+              <h3>Completed Project</h3>
+              <p>Finished landscaping and cleanup work completed with attention to detail.</p>
             </div>
           </div>
         </div>
