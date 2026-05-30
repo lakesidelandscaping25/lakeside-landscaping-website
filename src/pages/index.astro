@@ -17,6 +17,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
 
     <link rel="icon" type="image/png" href="/LLLogo.png" />
     <link rel="apple-touch-icon" href="/LLLogo.png" />
+    <link rel="preload" as="image" href="/Truck.webp" />
 
     <title>{businessName} | Lawn Care & Landscaping in Morris County, NJ</title>
     <meta
@@ -152,7 +153,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
             rgba(9, 55, 35, 0.76) 52%,
             rgba(9, 55, 35, 0.58) 100%
           ),
-          url("/Truck.png");
+          url("/Truck.webp");
         background-size: cover;
         background-position: 38% center;
         color: white;
@@ -222,6 +223,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
 
       .hero-card img {
         width: 118px;
+        height: auto;
         display: block;
         margin: 0 auto 18px;
       }
@@ -364,6 +366,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
       .about-logo-wrap img {
         width: 100%;
         max-width: 400px;
+        height: auto;
         object-fit: contain;
       }
 
@@ -469,7 +472,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
           padding: 58px 7%;
           background:
             linear-gradient(rgba(8, 35, 62, 0.84), rgba(9, 55, 35, 0.82)),
-            url("/Truck.png");
+            url("/Truck.webp");
           background-size: cover;
           background-position: center;
         }
@@ -519,7 +522,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
           grid-template-columns: 1fr;
           background:
             linear-gradient(rgba(8, 35, 62, 0.84), rgba(9, 55, 35, 0.82)),
-            url("/Truck.png");
+            url("/Truck.webp");
           background-size: cover;
           background-position: center;
         }
@@ -704,7 +707,13 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
 
         <div class="gallery-grid">
           <div class="gallery-photo-card">
-            <img src="/BeforeAfter-Leaves.png" alt="Before and after leaf cleanup project" />
+            <img
+              src="/BeforeAfter-Leaves.webp"
+              alt="Before and after leaf cleanup project"
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
             <div class="gallery-caption">
               <h3>Leaf Cleanup & Yard Clearing</h3>
               <p>Cleanup project showing leaves, debris, and overgrowth removed for a cleaner, more usable outdoor space.</p>
@@ -712,7 +721,13 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
           </div>
 
           <div class="gallery-photo-card">
-            <img src="/BeforeAfter-Flowers.png" alt="Before and after flower bed landscaping project" />
+            <img
+              src="/BeforeAfter-Flowers.webp"
+              alt="Before and after flower bed landscaping project"
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
             <div class="gallery-caption">
               <h3>Flower Bed Cleanup & Planting</h3>
               <p>Landscape refresh featuring trimmed shrubs, cleanup, bed improvement, and new planting for better curb appeal.</p>
@@ -736,7 +751,7 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
         </div>
 
         <div class="about-logo-wrap">
-          <img src={logo} alt="Lakeside Landscaping LLC logo" />
+          <img src={logo} alt="Lakeside Landscaping LLC logo" loading="lazy" />
         </div>
       </section>
 
