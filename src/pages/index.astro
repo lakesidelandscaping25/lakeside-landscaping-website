@@ -381,37 +381,34 @@ const seoDescription =
         background: #f4f8f4;
       }
 
-      .masonry-gallery {
+      .gallery-grid {
         max-width: 1180px;
         margin: 0 auto;
-        column-count: 3;
-        column-gap: 18px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px;
+        align-items: start;
       }
 
-      .gallery-item {
-        display: inline-block;
-        width: 100%;
-        margin: 0 0 18px;
-        overflow: hidden;
-        border-radius: 18px;
+      .gallery-card {
         background: white;
-        box-shadow: 0 12px 28px rgba(11, 61, 115, 0.1);
+        border-radius: 22px;
         border: 1px solid #dfe9e0;
-        padding: 10px;
-        break-inside: avoid;
+        box-shadow: 0 14px 34px rgba(11, 61, 115, 0.1);
+        padding: 14px;
       }
 
-      .gallery-item img {
+      .gallery-card img {
         width: 100%;
         height: auto;
         display: block;
         object-fit: contain;
-        border-radius: 12px;
+        border-radius: 14px;
         background: white;
       }
 
-      .gallery-item:hover img {
-        transform: none;
+      .gallery-card.feature {
+        grid-column: span 2;
       }
 
       .gallery-note {
@@ -568,11 +565,6 @@ const seoDescription =
         .grid {
           grid-template-columns: repeat(2, 1fr);
         }
-
-        .masonry-gallery {
-          column-count: 2;
-          column-gap: 16px;
-        }
       }
 
       @media (max-width: 650px) {
@@ -656,17 +648,17 @@ const seoDescription =
           padding: 58px 5%;
         }
 
-        .grid {
+        .grid,
+        .gallery-grid {
           grid-template-columns: 1fr;
         }
 
-        .masonry-gallery {
-          column-count: 1;
-          column-gap: 0;
+        .gallery-card.feature {
+          grid-column: auto;
         }
 
-        .gallery-item {
-          margin-bottom: 18px;
+        .gallery-card {
+          padding: 10px;
         }
 
         .about-logo-wrap {
@@ -802,24 +794,24 @@ const seoDescription =
           <p>Recent landscaping, cleanup, mulch, and property maintenance work.</p>
         </div>
 
-        <div class="masonry-gallery">
-          <figure class="gallery-item">
+        <div class="gallery-grid">
+          <figure class="gallery-card">
             <img src="/BeforeAfter-Leaves.webp" alt="Before and after leaf cleanup project" loading="lazy" />
           </figure>
 
-          <figure class="gallery-item">
+          <figure class="gallery-card">
             <img src="/BeforeAfter-Flowers.webp" alt="Before and after flower bed landscaping project" loading="lazy" />
           </figure>
 
-          <figure class="gallery-item">
+          <figure class="gallery-card">
             <img src="/BeforeAfter-Mulch.webp" alt="Before and after mulch landscaping project" loading="lazy" />
           </figure>
 
-          <figure class="gallery-item">
+          <figure class="gallery-card">
             <img src="/Looking%20Down.webp" alt="Outdoor landscaping cleanup work" loading="lazy" />
           </figure>
 
-          <figure class="gallery-item">
+          <figure class="gallery-card">
             <img src="/Thumbs%20Up.webp" alt="Completed landscaping project" loading="lazy" />
           </figure>
         </div>
