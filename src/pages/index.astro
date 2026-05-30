@@ -74,6 +74,12 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
         backdrop-filter: blur(10px);
       }
 
+      .brand-wrap {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
       .brand {
         display: flex;
         align-items: center;
@@ -101,6 +107,24 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
         font-size: 0.85rem;
         color: var(--green);
         font-weight: 800;
+      }
+
+      .header-phone {
+        color: var(--navy);
+        font-weight: 900;
+        font-size: 1rem;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: var(--soft-green);
+        border: 1px solid #d9eadf;
+        transition: 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .header-phone:hover {
+        background: var(--lake-blue);
+        color: white;
+        transform: translateY(-1px);
       }
 
       nav {
@@ -420,10 +444,14 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
         font-size: 0.95rem;
       }
 
-      @media (max-width: 950px) {
+      @media (max-width: 1050px) {
         header {
           flex-direction: column;
           gap: 12px;
+        }
+
+        .brand-wrap {
+          justify-content: center;
         }
 
         nav {
@@ -456,6 +484,11 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
           padding: 12px 5%;
         }
 
+        .brand-wrap {
+          flex-direction: column;
+          gap: 8px;
+        }
+
         .brand img {
           width: 52px;
           height: 52px;
@@ -467,6 +500,11 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
 
         .brand-text span {
           font-size: 0.78rem;
+        }
+
+        .header-phone {
+          font-size: 0.95rem;
+          padding: 8px 12px;
         }
 
         nav {
@@ -552,13 +590,19 @@ const reviewLink = "https://g.page/r/Cc8fX3vmupGEEAE/review";
 
   <body>
     <header>
-      <a class="brand" href="#">
-        <img src={logo} alt="Lakeside Landscaping LLC logo" />
-        <div class="brand-text">
-          <strong>Lakeside</strong>
-          <span>Landscaping LLC</span>
-        </div>
-      </a>
+      <div class="brand-wrap">
+        <a class="brand" href="#">
+          <img src={logo} alt="Lakeside Landscaping LLC logo" />
+          <div class="brand-text">
+            <strong>Lakeside</strong>
+            <span>Landscaping LLC</span>
+          </div>
+        </a>
+
+        <a class="header-phone" href={`tel:${phoneHref}`}>
+          {phone}
+        </a>
+      </div>
 
       <nav>
         <a href="#services">Services</a>
