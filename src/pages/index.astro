@@ -381,60 +381,47 @@ const seoDescription =
         background: #f4f8f4;
       }
 
-      .gallery-wall {
-        max-width: 1180px;
+      .gallery-shell {
+        max-width: 1050px;
         margin: 0 auto;
+      }
+
+      .gallery-layout {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 8px;
-        background: #f4f8f4;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        align-items: start;
       }
 
-      .gallery-photo {
-        margin: 0;
-        background: #f4f8f4;
-        overflow: hidden;
+      .gallery-column {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      .gallery-photo img {
-        width: 100%;
-        height: 100%;
+      .gallery-link {
         display: block;
-        object-fit: contain;
-        background: #f4f8f4;
+        width: 100%;
+        overflow: hidden;
+        background: transparent;
       }
 
-      .gallery-photo.before-leaves {
-        grid-column: span 2;
-        grid-row: span 2;
+      .gallery-link img {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: transparent;
+        transition: opacity 0.2s ease, transform 0.2s ease;
       }
 
-      .gallery-photo.before-flowers {
-        grid-column: span 4;
-        grid-row: span 2;
-      }
-
-      .gallery-photo.before-mulch {
-        grid-column: span 3;
-        grid-row: span 2;
-      }
-
-      .gallery-photo.looking-down {
-        grid-column: span 3;
-        grid-row: span 3;
-      }
-
-      .gallery-photo.thumbs-up {
-        grid-column: span 3;
-        grid-row: span 3;
+      .gallery-link:hover img {
+        opacity: 0.92;
+        transform: scale(1.01);
       }
 
       .gallery-note {
-        max-width: 1180px;
-        margin: 24px auto 0;
+        max-width: 1050px;
+        margin: 22px auto 0;
         text-align: center;
         color: var(--muted);
         font-size: 0.98rem;
@@ -587,17 +574,8 @@ const seoDescription =
           grid-template-columns: repeat(2, 1fr);
         }
 
-        .gallery-wall {
+        .gallery-layout {
           grid-template-columns: repeat(2, 1fr);
-        }
-
-        .gallery-photo.before-leaves,
-        .gallery-photo.before-flowers,
-        .gallery-photo.before-mulch,
-        .gallery-photo.looking-down,
-        .gallery-photo.thumbs-up {
-          grid-column: span 1;
-          grid-row: span 1;
         }
       }
 
@@ -686,18 +664,13 @@ const seoDescription =
           grid-template-columns: 1fr;
         }
 
-        .gallery-wall {
+        .gallery-layout {
           grid-template-columns: 1fr;
-          gap: 12px;
+          gap: 10px;
         }
 
-        .gallery-photo {
-          width: 100%;
-        }
-
-        .gallery-photo img {
-          width: 100%;
-          height: auto;
+        .gallery-column {
+          gap: 10px;
         }
 
         .about-logo-wrap {
@@ -833,30 +806,38 @@ const seoDescription =
           <p>Recent landscaping, cleanup, mulch, and property maintenance work.</p>
         </div>
 
-        <div class="gallery-wall">
-          <figure class="gallery-photo before-leaves">
-            <img src="/BeforeAfter-Leaves.webp" alt="Before and after leaf cleanup project" loading="lazy" />
-          </figure>
+        <div class="gallery-shell">
+          <div class="gallery-layout">
+            <div class="gallery-column">
+              <a class="gallery-link" href="/BeforeAfter-Leaves.webp" target="_blank" rel="noopener noreferrer">
+                <img src="/BeforeAfter-Leaves.webp" alt="Before and after leaf cleanup project" loading="lazy" />
+              </a>
 
-          <figure class="gallery-photo before-flowers">
-            <img src="/BeforeAfter-Flowers.webp" alt="Before and after flower bed landscaping project" loading="lazy" />
-          </figure>
+              <a class="gallery-link" href="/BeforeAfter-Mulch.webp" target="_blank" rel="noopener noreferrer">
+                <img src="/BeforeAfter-Mulch.webp" alt="Before and after mulch landscaping project" loading="lazy" />
+              </a>
+            </div>
 
-          <figure class="gallery-photo before-mulch">
-            <img src="/BeforeAfter-Mulch.webp" alt="Before and after mulch landscaping project" loading="lazy" />
-          </figure>
+            <div class="gallery-column">
+              <a class="gallery-link" href="/BeforeAfter-Flowers.webp" target="_blank" rel="noopener noreferrer">
+                <img src="/BeforeAfter-Flowers.webp" alt="Before and after flower bed landscaping project" loading="lazy" />
+              </a>
 
-          <figure class="gallery-photo looking-down">
-            <img src="/Looking%20Down.webp" alt="Outdoor landscaping cleanup work" loading="lazy" />
-          </figure>
+              <a class="gallery-link" href="/Looking%20Down.webp" target="_blank" rel="noopener noreferrer">
+                <img src="/Looking%20Down.webp" alt="Outdoor landscaping cleanup work" loading="lazy" />
+              </a>
+            </div>
 
-          <figure class="gallery-photo thumbs-up">
-            <img src="/Thumbs%20Up.webp" alt="Completed landscaping project" loading="lazy" />
-          </figure>
+            <div class="gallery-column">
+              <a class="gallery-link" href="/Thumbs%20Up.webp" target="_blank" rel="noopener noreferrer">
+                <img src="/Thumbs%20Up.webp" alt="Completed landscaping project" loading="lazy" />
+              </a>
+            </div>
+          </div>
         </div>
 
         <p class="gallery-note">
-          More completed project photos will be added as new work is finished.
+          Click any photo to view it larger. More completed project photos will be added as new work is finished.
         </p>
       </section>
 
