@@ -58,7 +58,9 @@ const galleryImages = [
 
     <link rel="icon" type="image/png" href="/LLLogo.png" />
     <link rel="apple-touch-icon" href="/LLLogo.png" />
+
     <link rel="preload" as="image" href="/Truck.webp" />
+    <link rel="preload" as="image" href="/BeforeAfter-Leaves.webp" />
 
     <meta property="og:title" content={seoTitle} />
     <meta property="og:description" content={seoDescription} />
@@ -176,11 +178,21 @@ const galleryImages = [
         color: var(--text);
         background: var(--cream);
         line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
       }
 
       a {
         color: inherit;
         text-decoration: none;
+      }
+
+      section {
+        padding: 82px 7%;
+        scroll-margin-top: 110px;
       }
 
       header {
@@ -200,7 +212,7 @@ const galleryImages = [
       .brand-wrap {
         display: flex;
         align-items: center;
-        gap: 22px;
+        gap: 20px;
       }
 
       .brand {
@@ -373,10 +385,6 @@ const galleryImages = [
         font-size: 0.98rem;
       }
 
-      section {
-        padding: 82px 7%;
-      }
-
       .section-title {
         text-align: center;
         margin-bottom: 42px;
@@ -428,8 +436,8 @@ const galleryImages = [
       .portfolio-slider {
         max-width: 1120px;
         margin: 0 auto;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(223, 233, 224, 0.9);
+        background: rgba(255, 255, 255, 0.84);
+        border: 1px solid rgba(223, 233, 224, 0.95);
         border-radius: 30px;
         box-shadow: var(--shadow);
         padding: 26px;
@@ -467,32 +475,25 @@ const galleryImages = [
       .slider-window {
         background: #f7faf6;
         border-radius: 24px;
-        min-height: 560px;
+        height: min(58vw, 560px);
+        min-height: 430px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
       }
 
-      .slide {
-        display: none;
-        width: 100%;
-      }
-
-      .slide.active {
-        display: block;
-      }
-
-      .slide a {
+      .main-slide-link {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
+        height: 100%;
       }
 
-      .slide img {
+      #main-slide-image {
         width: 100%;
-        max-height: 560px;
+        height: 100%;
         object-fit: contain;
         display: block;
       }
@@ -734,51 +735,70 @@ const galleryImages = [
         }
 
         .slider-window {
-          min-height: 500px;
-        }
-
-        .slide img {
-          max-height: 500px;
+          height: min(62vw, 500px);
+          min-height: 380px;
         }
       }
 
       @media (max-width: 650px) {
         header {
+          position: static;
           padding: 12px 5%;
-        }
-
-        .brand-wrap {
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .brand img {
-          width: 52px;
-          height: 52px;
-        }
-
-        .brand-text strong {
-          font-size: 1rem;
-        }
-
-        .brand-text span {
-          font-size: 0.78rem;
-        }
-
-        .header-phone {
-          font-size: 0.95rem;
-          padding: 8px 12px;
-        }
-
-        nav {
-          font-size: 0.84rem;
           gap: 10px;
         }
 
+        .brand-wrap {
+          width: 100%;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .brand {
+          gap: 9px;
+        }
+
+        .brand img {
+          width: 46px;
+          height: 46px;
+        }
+
+        .brand-text strong {
+          font-size: 0.98rem;
+        }
+
+        .brand-text span {
+          font-size: 0.74rem;
+        }
+
+        .header-phone {
+          font-size: 0.84rem;
+          padding: 8px 10px;
+          border-radius: 11px;
+        }
+
+        nav {
+          width: 100%;
+          overflow-x: auto;
+          justify-content: flex-start;
+          gap: 16px;
+          font-size: 0.82rem;
+          padding: 4px 0 2px;
+          scrollbar-width: none;
+        }
+
+        nav::-webkit-scrollbar {
+          display: none;
+        }
+
+        section {
+          padding: 54px 5%;
+          scroll-margin-top: 20px;
+        }
+
         .hero {
-          padding: 46px 5%;
+          padding: 42px 5%;
           min-height: auto;
-          gap: 30px;
+          gap: 28px;
           grid-template-columns: 1fr;
           background:
             linear-gradient(rgba(8, 59, 112, 0.84), rgba(15, 61, 34, 0.82)),
@@ -788,95 +808,130 @@ const galleryImages = [
         }
 
         .hero h1 {
-          font-size: 2.15rem;
+          font-size: clamp(2rem, 11vw, 2.55rem);
           line-height: 1.08;
+          margin-bottom: 16px;
         }
 
         .hero p {
-          font-size: 1rem;
-          line-height: 1.65;
+          font-size: 0.98rem;
+          line-height: 1.62;
+          margin-bottom: 22px;
         }
 
         .buttons {
           flex-direction: column;
+          gap: 10px;
         }
 
         .btn {
           text-align: center;
           width: 100%;
           border-radius: 12px;
+          padding: 13px 18px;
         }
 
         .hero-card {
-          padding: 24px 20px;
+          padding: 22px 18px;
+          border-radius: 20px;
         }
 
         .hero-card img {
-          width: 105px;
+          width: 92px;
         }
 
         .hero-card h2 {
-          font-size: 1.35rem;
+          font-size: 1.25rem;
         }
 
-        section {
-          padding: 58px 5%;
+        .hero-card li {
+          font-size: 0.92rem;
+        }
+
+        .section-title {
+          margin-bottom: 28px;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .section-title p {
+          font-size: 0.96rem;
         }
 
         .grid {
           grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .card {
+          padding: 22px;
+          border-radius: 18px;
         }
 
         .portfolio-slider {
           padding: 14px;
           border-radius: 22px;
+          box-shadow: 0 12px 28px rgba(8, 59, 112, 0.1);
         }
 
         .slider-stage {
-          grid-template-columns: 42px minmax(0, 1fr) 42px;
+          grid-template-columns: 38px minmax(0, 1fr) 38px;
           gap: 8px;
         }
 
         .slider-arrow {
-          width: 42px;
-          height: 42px;
-          font-size: 1.75rem;
+          width: 38px;
+          height: 38px;
+          font-size: 1.55rem;
+          box-shadow: 0 8px 18px rgba(8, 59, 112, 0.2);
         }
 
         .slider-window {
-          min-height: 310px;
+          min-height: 0;
+          height: 64vw;
+          max-height: 340px;
           border-radius: 16px;
-        }
-
-        .slide img {
-          max-height: 310px;
         }
 
         .slider-bottom {
           grid-template-columns: 1fr;
           text-align: center;
+          gap: 14px;
+          margin-top: 16px;
+        }
+
+        .slide-title {
+          font-size: 1.25rem;
+        }
+
+        .slide-description {
+          font-size: 0.92rem;
         }
 
         .open-photo {
           width: 100%;
+          padding: 11px 14px;
         }
 
         .thumbnail-row {
-          grid-template-columns: repeat(5, 1fr);
-          gap: 6px;
+          display: none;
         }
 
-        .thumbnail {
-          height: 52px;
-          border-radius: 10px;
+        .about {
+          grid-template-columns: 1fr;
+          gap: 28px;
         }
 
         .about-logo-wrap {
           padding: 24px;
+          border-radius: 22px;
         }
 
         .contact-info {
           padding: 20px;
+          border-radius: 18px;
         }
 
         .review-button {
@@ -884,7 +939,8 @@ const galleryImages = [
         }
 
         footer {
-          font-size: 0.85rem;
+          font-size: 0.84rem;
+          padding: 22px 5%;
         }
       }
     </style>
@@ -894,7 +950,7 @@ const galleryImages = [
     <header>
       <div class="brand-wrap">
         <a class="brand" href="#">
-          <img src={logo} alt="Lakeside Landscaping LLC logo" />
+          <img src={logo} alt="Lakeside Landscaping LLC logo" width="58" height="58" />
           <div class="brand-text">
             <strong>Lakeside</strong>
             <span>Landscaping LLC</span>
@@ -932,7 +988,7 @@ const galleryImages = [
         </div>
 
         <div class="hero-card">
-          <img src={logo} alt="Lakeside Landscaping LLC logo" />
+          <img src={logo} alt="Lakeside Landscaping LLC logo" width="118" height="118" />
           <h2>Reliable Outdoor Property Care</h2>
           <ul>
             <li>✓ Free estimates</li>
@@ -1009,18 +1065,16 @@ const galleryImages = [
             <button class="slider-arrow prev" type="button" aria-label="Previous photo">‹</button>
 
             <div class="slider-window">
-              {galleryImages.map((image, index) => (
-                <div
-                  class={`slide ${index === 0 ? "active" : ""}`}
-                  data-title={image.title}
-                  data-description={image.description}
-                  data-src={image.src}
-                >
-                  <a href={image.src} target="_blank" rel="noopener noreferrer">
-                    <img src={image.src} alt={image.alt} loading={index === 0 ? "eager" : "lazy"} />
-                  </a>
-                </div>
-              ))}
+              <a class="main-slide-link" id="main-slide-link" href={galleryImages[0].src} target="_blank" rel="noopener noreferrer">
+                <img
+                  id="main-slide-image"
+                  src={galleryImages[0].src}
+                  alt={galleryImages[0].alt}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </a>
             </div>
 
             <button class="slider-arrow next" type="button" aria-label="Next photo">›</button>
@@ -1046,7 +1100,7 @@ const galleryImages = [
                 aria-label={`View ${image.title}`}
                 data-slide-index={index}
               >
-                <img src={image.src} alt="" loading="lazy" />
+                <img src={image.src} alt="" loading="lazy" decoding="async" />
               </button>
             ))}
           </div>
@@ -1055,6 +1109,8 @@ const galleryImages = [
         <p class="gallery-note">
           More completed project photos will be added as new work is finished.
         </p>
+
+        <script type="application/json" id="gallery-data" set:html={JSON.stringify(galleryImages)} />
       </section>
 
       <section id="about" class="about">
@@ -1072,7 +1128,7 @@ const galleryImages = [
         </div>
 
         <div class="about-logo-wrap">
-          <img src={logo} alt="Lakeside Landscaping LLC logo" loading="lazy" />
+          <img src={logo} alt="Lakeside Landscaping LLC logo" loading="lazy" decoding="async" width="400" height="400" />
         </div>
       </section>
 
@@ -1110,40 +1166,41 @@ const galleryImages = [
     </footer>
 
     <script>
+      const galleryDataElement = document.querySelector("#gallery-data");
       const slideshow = document.querySelector("#project-slideshow");
 
-      if (slideshow) {
-        const slides = Array.from(slideshow.querySelectorAll(".slide"));
-        const thumbnails = Array.from(slideshow.querySelectorAll(".thumbnail"));
-        const prevButton = slideshow.querySelector(".slider-arrow.prev");
-        const nextButton = slideshow.querySelector(".slider-arrow.next");
+      if (galleryDataElement && slideshow) {
+        const galleryImages = JSON.parse(galleryDataElement.textContent || "[]");
+        const mainImage = document.querySelector("#main-slide-image");
+        const mainLink = document.querySelector("#main-slide-link");
+        const openPhotoLink = document.querySelector("#open-photo-link");
         const title = document.querySelector("#slide-title");
         const description = document.querySelector("#slide-description");
         const count = document.querySelector("#slide-count");
-        const openPhotoLink = document.querySelector("#open-photo-link");
+        const thumbnails = Array.from(slideshow.querySelectorAll(".thumbnail"));
+        const prevButton = slideshow.querySelector(".slider-arrow.prev");
+        const nextButton = slideshow.querySelector(".slider-arrow.next");
 
         let currentSlide = 0;
 
         function showSlide(index) {
-          currentSlide = (index + slides.length) % slides.length;
+          if (!galleryImages.length || !mainImage || !mainLink) return;
 
-          slides.forEach((slide, slideIndex) => {
-            slide.classList.toggle("active", slideIndex === currentSlide);
-          });
+          currentSlide = (index + galleryImages.length) % galleryImages.length;
+          const activeImage = galleryImages[currentSlide];
+
+          mainImage.setAttribute("src", activeImage.src);
+          mainImage.setAttribute("alt", activeImage.alt);
+          mainLink.setAttribute("href", activeImage.src);
+
+          if (openPhotoLink) openPhotoLink.setAttribute("href", activeImage.src);
+          if (title) title.textContent = activeImage.title;
+          if (description) description.textContent = activeImage.description;
+          if (count) count.textContent = `Photo ${currentSlide + 1} of ${galleryImages.length}`;
 
           thumbnails.forEach((thumbnail, thumbnailIndex) => {
             thumbnail.classList.toggle("active", thumbnailIndex === currentSlide);
           });
-
-          const activeSlide = slides[currentSlide];
-          const activeTitle = activeSlide.getAttribute("data-title");
-          const activeDescription = activeSlide.getAttribute("data-description");
-          const activeSrc = activeSlide.getAttribute("data-src");
-
-          if (title) title.textContent = activeTitle || "";
-          if (description) description.textContent = activeDescription || "";
-          if (count) count.textContent = `Photo ${currentSlide + 1} of ${slides.length}`;
-          if (openPhotoLink && activeSrc) openPhotoLink.setAttribute("href", activeSrc);
         }
 
         prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
