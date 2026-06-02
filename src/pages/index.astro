@@ -11,6 +11,34 @@ const siteUrl = "https://lakeside-landscaping-llc.com/";
 const seoTitle = "Lakeside Landscaping LLC | Morris County, NJ";
 const seoDescription =
   "Lakeside Landscaping LLC provides lawn mowing, cleanups, planting, hardscaping, leaf removal, and snow removal in Morris County, NJ.";
+
+const galleryImages = [
+  {
+    src: "/BeforeAfter-Leaves.webp",
+    alt: "Before and after leaf cleanup project",
+    title: "Leaf Cleanup"
+  },
+  {
+    src: "/BeforeAfter-Flowers.webp",
+    alt: "Before and after flower bed landscaping project",
+    title: "Flower Bed Cleanup"
+  },
+  {
+    src: "/BeforeAfter-Mulch.webp",
+    alt: "Before and after mulch landscaping project",
+    title: "Mulch Refresh"
+  },
+  {
+    src: "/Looking%20Down.webp",
+    alt: "Outdoor landscaping cleanup work",
+    title: "Landscape Work"
+  },
+  {
+    src: "/Thumbs%20Up.webp",
+    alt: "Completed landscaping project",
+    title: "Completed Project"
+  }
+];
 ---
 
 <!doctype html>
@@ -381,47 +409,131 @@ const seoDescription =
         background: #f4f8f4;
       }
 
-      .gallery-shell {
-        max-width: 1050px;
+      .slideshow {
+        max-width: 980px;
         margin: 0 auto;
       }
 
-      .gallery-layout {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        align-items: start;
-      }
-
-      .gallery-column {
+      .slideshow-frame {
+        position: relative;
+        width: 100%;
+        min-height: 560px;
+        background: #eef7ef;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .gallery-link {
-        display: block;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
-        background: transparent;
       }
 
-      .gallery-link img {
+      .slide {
+        display: none;
         width: 100%;
-        height: auto;
-        display: block;
-        background: transparent;
-        transition: opacity 0.2s ease, transform 0.2s ease;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
       }
 
-      .gallery-link:hover img {
-        opacity: 0.92;
-        transform: scale(1.01);
+      .slide.active {
+        display: flex;
+      }
+
+      .slide a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .slide img {
+        width: 100%;
+        max-height: 560px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .slide-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(11, 61, 115, 0.9);
+        color: white;
+        font-size: 2rem;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 3;
+        transition: 0.2s ease;
+      }
+
+      .slide-arrow:hover {
+        background: var(--green);
+        transform: translateY(-50%) scale(1.05);
+      }
+
+      .slide-arrow.prev {
+        left: 16px;
+      }
+
+      .slide-arrow.next {
+        right: 16px;
+      }
+
+      .slide-info {
+        margin-top: 18px;
+        text-align: center;
+      }
+
+      .slide-title {
+        color: var(--navy);
+        font-size: 1.35rem;
+        font-weight: 900;
+      }
+
+      .slide-count {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 4px;
+      }
+
+      .slide-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .slide-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        border: none;
+        background: #b9c9bd;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .slide-dot.active {
+        width: 30px;
+        background: var(--navy);
+      }
+
+      .open-photo {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--navy);
+        font-weight: 900;
+        text-decoration: underline;
       }
 
       .gallery-note {
-        max-width: 1050px;
-        margin: 22px auto 0;
+        max-width: 980px;
+        margin: 18px auto 0;
         text-align: center;
         color: var(--muted);
         font-size: 0.98rem;
@@ -574,8 +686,12 @@ const seoDescription =
           grid-template-columns: repeat(2, 1fr);
         }
 
-        .gallery-layout {
-          grid-template-columns: repeat(2, 1fr);
+        .slideshow-frame {
+          min-height: 500px;
+        }
+
+        .slide img {
+          max-height: 500px;
         }
       }
 
@@ -664,13 +780,26 @@ const seoDescription =
           grid-template-columns: 1fr;
         }
 
-        .gallery-layout {
-          grid-template-columns: 1fr;
-          gap: 10px;
+        .slideshow-frame {
+          min-height: 320px;
         }
 
-        .gallery-column {
-          gap: 10px;
+        .slide img {
+          max-height: 320px;
+        }
+
+        .slide-arrow {
+          width: 40px;
+          height: 40px;
+          font-size: 1.65rem;
+        }
+
+        .slide-arrow.prev {
+          left: 8px;
+        }
+
+        .slide-arrow.next {
+          right: 8px;
         }
 
         .about-logo-wrap {
@@ -803,41 +932,47 @@ const seoDescription =
       <section id="gallery" class="gallery">
         <div class="section-title">
           <h2>Project Gallery</h2>
-          <p>Recent landscaping, cleanup, mulch, and property maintenance work.</p>
+          <p>Use the arrows to view recent landscaping, cleanup, mulch, and property maintenance work.</p>
         </div>
 
-        <div class="gallery-shell">
-          <div class="gallery-layout">
-            <div class="gallery-column">
-              <a class="gallery-link" href="/BeforeAfter-Leaves.webp" target="_blank" rel="noopener noreferrer">
-                <img src="/BeforeAfter-Leaves.webp" alt="Before and after leaf cleanup project" loading="lazy" />
-              </a>
+        <div class="slideshow" id="project-slideshow">
+          <div class="slideshow-frame">
+            <button class="slide-arrow prev" type="button" aria-label="Previous photo">‹</button>
 
-              <a class="gallery-link" href="/BeforeAfter-Mulch.webp" target="_blank" rel="noopener noreferrer">
-                <img src="/BeforeAfter-Mulch.webp" alt="Before and after mulch landscaping project" loading="lazy" />
-              </a>
+            {galleryImages.map((image, index) => (
+              <div class={`slide ${index === 0 ? "active" : ""}`} data-title={image.title} data-src={image.src}>
+                <a href={image.src} target="_blank" rel="noopener noreferrer">
+                  <img src={image.src} alt={image.alt} loading={index === 0 ? "eager" : "lazy"} />
+                </a>
+              </div>
+            ))}
+
+            <button class="slide-arrow next" type="button" aria-label="Next photo">›</button>
+          </div>
+
+          <div class="slide-info">
+            <div class="slide-title" id="slide-title">{galleryImages[0].title}</div>
+            <div class="slide-count" id="slide-count">Photo 1 of {galleryImages.length}</div>
+
+            <div class="slide-dots">
+              {galleryImages.map((image, index) => (
+                <button
+                  class={`slide-dot ${index === 0 ? "active" : ""}`}
+                  type="button"
+                  aria-label={`View ${image.title}`}
+                  data-slide-index={index}
+                ></button>
+              ))}
             </div>
 
-            <div class="gallery-column">
-              <a class="gallery-link" href="/BeforeAfter-Flowers.webp" target="_blank" rel="noopener noreferrer">
-                <img src="/BeforeAfter-Flowers.webp" alt="Before and after flower bed landscaping project" loading="lazy" />
-              </a>
-
-              <a class="gallery-link" href="/Looking%20Down.webp" target="_blank" rel="noopener noreferrer">
-                <img src="/Looking%20Down.webp" alt="Outdoor landscaping cleanup work" loading="lazy" />
-              </a>
-            </div>
-
-            <div class="gallery-column">
-              <a class="gallery-link" href="/Thumbs%20Up.webp" target="_blank" rel="noopener noreferrer">
-                <img src="/Thumbs%20Up.webp" alt="Completed landscaping project" loading="lazy" />
-              </a>
-            </div>
+            <a class="open-photo" id="open-photo-link" href={galleryImages[0].src} target="_blank" rel="noopener noreferrer">
+              Open full photo
+            </a>
           </div>
         </div>
 
         <p class="gallery-note">
-          Click any photo to view it larger. More completed project photos will be added as new work is finished.
+          More completed project photos will be added as new work is finished.
         </p>
       </section>
 
@@ -892,5 +1027,56 @@ const seoDescription =
     <footer>
       © {new Date().getFullYear()} {businessName}. All rights reserved. Serving {location}.
     </footer>
+
+    <script>
+      const slideshow = document.querySelector("#project-slideshow");
+
+      if (slideshow) {
+        const slides = Array.from(slideshow.querySelectorAll(".slide"));
+        const dots = Array.from(slideshow.querySelectorAll(".slide-dot"));
+        const prevButton = slideshow.querySelector(".slide-arrow.prev");
+        const nextButton = slideshow.querySelector(".slide-arrow.next");
+        const title = document.querySelector("#slide-title");
+        const count = document.querySelector("#slide-count");
+        const openPhotoLink = document.querySelector("#open-photo-link");
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+          currentSlide = (index + slides.length) % slides.length;
+
+          slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle("active", slideIndex === currentSlide);
+          });
+
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle("active", dotIndex === currentSlide);
+          });
+
+          const activeSlide = slides[currentSlide];
+          const activeTitle = activeSlide.getAttribute("data-title");
+          const activeSrc = activeSlide.getAttribute("data-src");
+
+          if (title) title.textContent = activeTitle || "";
+          if (count) count.textContent = `Photo ${currentSlide + 1} of ${slides.length}`;
+          if (openPhotoLink && activeSrc) openPhotoLink.setAttribute("href", activeSrc);
+        }
+
+        prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
+        nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const index = Number(dot.getAttribute("data-slide-index"));
+            showSlide(index);
+          });
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") showSlide(currentSlide - 1);
+          if (event.key === "ArrowRight") showSlide(currentSlide + 1);
+        });
+      }
+    </script>
   </body>
 </html>
