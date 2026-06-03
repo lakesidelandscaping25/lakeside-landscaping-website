@@ -1293,10 +1293,6 @@ const galleryImages = [
               <div class="slide-description" id="slide-description">{galleryImages[0].description}</div>
               <div class="slide-count" id="slide-count">Photo 1 of {galleryImages.length}</div>
             </div>
-
-            <a class="open-photo" id="open-photo-link" href={galleryImages[0].src} target="_blank" rel="noopener noreferrer">
-              Open full photo
-            </a>
           </div>
 
           <div class="dot-row" aria-label="Gallery photo selector">
@@ -1416,7 +1412,6 @@ const galleryImages = [
         const galleryImages = JSON.parse(galleryDataElement.textContent || "[]");
         const mainImage = document.querySelector("#main-slide-image");
         const mainLink = document.querySelector("#main-slide-link");
-        const openPhotoLink = document.querySelector("#open-photo-link");
         const title = document.querySelector("#slide-title");
         const description = document.querySelector("#slide-description");
         const count = document.querySelector("#slide-count");
@@ -1436,7 +1431,6 @@ const galleryImages = [
           mainImage.setAttribute("alt", activeImage.alt);
           mainLink.setAttribute("href", activeImage.src);
 
-          if (openPhotoLink) openPhotoLink.setAttribute("href", activeImage.src);
           if (title) title.textContent = activeImage.title;
           if (description) description.textContent = activeImage.description;
           if (count) count.textContent = `Photo ${currentSlide + 1} of ${galleryImages.length}`;
